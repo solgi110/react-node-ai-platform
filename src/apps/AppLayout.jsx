@@ -62,6 +62,11 @@ export const router = createBrowserRouter([
       { path: 'signup', element: <SigninPage /> }
     ]
   }
+,
+
+  {
+     basename: import.meta.env.BASE_URL,
+  }
 ])
 
 export default function AppLayout() {
