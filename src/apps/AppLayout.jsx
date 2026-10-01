@@ -15,59 +15,58 @@ import { HomeContainer } from '../pages/Home'
 import Feathers from '../pages/products/Feathers'
 import Integration from '../pages/products/Integration'
 
-export const router = createBrowserRouter([
-  {
-    element: <AppLayout />,
-    children: [
-      { index: true, element: <Navigate to="/home" replace /> },
-      { path: 'home', element: <Home /> }
-    ]
-  },
+export const router = createBrowserRouter(
+  [
+    {
+      element: <AppLayout />,
+      children: [
+        { index: true, element: <Navigate to="/home" replace /> },
+        { path: 'home', element: <Home /> }
+      ]
+    },
+    {
+      element: <FooterLayout />,
+      children: [
+        {
+          path: 'product',
+          children: [
+            { path: 'overview', element: <Overview /> },
+            { path: 'features', element: <Feathers /> },
+            { path: 'integrations', element: <Integration /> },
+            { path: 'automation', element: '' },
+            { path: 'analytics', element: '' },
+            { path: 'security', element: '' }
+          ]
+        },
+        {
+          path: 'solotion',
+          children: [
+            { path: 'sales', element: '' },
+            { path: 'marketing', element: '' },
+            { path: 'customer-service', element: '' },
+            { path: 'finance', element: '' },
+            { path: 'it', element: '' },
+            { path: 'ecommerce', element: '' },
+            { path: 'startups', element: '' }
+          ]
+        }
+      ]
+    },
+    {
+      element: <CreateAccount />,
+      children: [
+        { path: 'login', element: <Login /> },
+        { path: 'new_password', element: <PasswordRequest /> },
+        { path: 'confirm_password', element: <ConfirmPassword /> },
+        { path: 'signup', element: <SigninPage /> }
+      ]
+    }
+  ],
 
   {
-    element: <FooterLayout />,
-    children: [
-      {
-        path: 'product',
-        children: [
-          { path: 'overview', element: <Overview /> },
-          { path: 'features', element: <Feathers /> },
-          { path: 'integrations', element: <Integration /> },
-          { path: 'automation', element: '' },
-          { path: 'analytics', element: '' },
-          { path: 'security', element: '' }
-        ]
-      },
-      {
-        path: 'solotion',
-        children: [
-          { path: 'sales', element: '' },
-          { path: 'marketing', element: '' },
-          { path: 'customer-service', element: '' },
-          { path: 'finance', element: '' },
-          { path: 'it', element: '' },
-          { path: 'ecommerce', element: '' },
-          { path: 'startups', element: '' }
-        ]
-      }
-    ]
-  },
-
-  {
-    element: <CreateAccount />,
-    children: [
-      { path: 'login', element: <Login /> },
-      { path: 'new_password', element: <PasswordRequest /> },
-      { path: 'confirm_password', element: <ConfirmPassword /> },
-      { path: 'signup', element: <SigninPage /> }
-    ]
+    basename: '/react-node-ai-platform/'
   }
-,
-
-  {
-      basename: "/react-node-ai-platform/",
-  }
-])
+)
 
 export default function AppLayout() {
   return (
@@ -78,7 +77,6 @@ export default function AppLayout() {
       </main>
       {/* we need the secon Layout for its Componnents */}
       <Footer columns="1fr 1fr 1fr 1fr " />
-      
     </>
   )
 }
