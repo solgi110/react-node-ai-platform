@@ -17,22 +17,13 @@ app.use(express.json())
 app.use(cors())
 
 app.post('/openai', (req, res) => {
-  console.log( req.body.text);
-  console.log('this is here');
+  console.log(req.body.text);
+  console.log('data is here');
 
 
 })
 
-
-
-
-
-console.log('mosibat ');
-
-
-
-
-
+// Ai is comming baby !
 
 app.listen(8080, () => {
   console.log('server is runing Now ..');

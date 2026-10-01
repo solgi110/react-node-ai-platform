@@ -207,10 +207,10 @@ export default function Home() {
       <TextWrapper className="Wrapper">
         <BigTag className="texts">
           <div className="One">
-            <p> ay baba in dahane mano service kard </p>
-            <p> No one geht a professional Developer in a Day </p>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing </p>
+            <p> No one get a professional Developer in a year </p>
             <p> this is Mostafa Solgi what you see in here </p>
-            <p> ay baba in dahane mano service kard </p>
+            <p> pation is the most important thing to become a developer </p>
           </div>
         </BigTag>
       </TextWrapper>
