@@ -20,7 +20,7 @@ const close = keyframes`
 `
 const Aicontainer = styled.div`
   position: fixed;
-  top: 55%;
+  top: 45%;
   width: 65%;
   max-width: 630px;
   height: 600px;
