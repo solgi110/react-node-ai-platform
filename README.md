@@ -1,16 +1,397 @@
-# React + Vite
+# React Node AI Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 🚧 Work in Progress
 
-Currently, two official plugins are available:
+A full-stack web application built with React and Node.js, featuring Supabase authentication, reusable React components, Styled Components, GSAP animations, pagination, stepper components, and an evolving AI assistant.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+I decided to publish this project early instead of waiting until it is fully completed, so the development process, improvements, architectural changes, and new features can be followed over time.
 
-## React Compiler
+The project is actively being developed and updated regularly.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Current Status
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The application is currently functional on desktop and laptop screens.
+
+Responsive design for mobile devices is not yet completed.
+
+> **Important:**  
+> The current version is intended primarily for desktop and laptop use.  
+> Mobile layouts may not display correctly yet.
+
+---
+
+## Current Features
+
+- React-based frontend
+- Supabase Authentication
+- User registration
+- Sign in
+- Login
+- Logout
+- Password reset
+- Session handling
+- Protected application areas
+- Header navigation
+- Footer architecture
+- Pagination
+- Stepper components
+- Dynamic React components
+- Reusable components
+- Styled Components
+- GSAP animations
+- Interactive AI chat interface
+- Dynamic message rendering
+- Automatic chat scrolling
+- Message timestamps
+- Message deletion
+- Input validation
+- LinkedIn integration
+- GitHub integration
+
+---
+
+## Authentication
+
+Authentication is implemented with Supabase.
+
+Current authentication features include:
+
+- User registration
+- Sign in
+- Login
+- Logout
+- Password reset
+- Session handling
+- Protected application areas
+
+Supabase Authentication is used to manage users and authentication state.
+
+The authentication logic is already functional, while the visual design of the login, registration, and password recovery interfaces is still being improved.
+
+A more polished authentication interface and additional animations are planned.
+
+---
+
+## User Interface
+
+The user interface is built primarily with reusable React components and Styled Components.
+
+The project includes:
+
+- Component-based UI architecture
+- Reusable UI components
+- Dynamic rendering
+- Styled Components
+- Custom CSS
+- React Icons
+- Interactive elements
+- Animated UI sections
+
+---
+
+## AI Assistant
+
+An AI assistant is currently being developed and integrated into the application.
+
+At the moment, the assistant includes a custom text-based chat interface.
+
+Current chat functionality includes:
+
+- User message input
+- Dynamic message objects
+- Message history
+- Automatic scrolling
+- Message timestamps
+- Empty-message validation
+- Message deletion
+- Custom chat UI
+- User and assistant message structure
+
+The AI assistant can be accessed from the footer area of the application.
+
+---
+
+## AI Development Roadmap
+
+The next stage is connecting the chat interface to the backend.
+
+Planned architecture:
+
+React Frontend  
+↓  
+Node.js Backend  
+↓  
+OpenAI API  
+↓  
+Node.js  
+↓  
+React Chat Interface
+
+Future improvements include:
+
+- OpenAI API integration
+- AI-generated responses
+- Conversation history
+- Persistent chat storage
+- Supabase integration
+- User-specific conversations
+- Loading states
+- Error handling
+- Streaming responses
+- Voice interaction
+- Voice-enabled AI assistant
+- More advanced AI-agent functionality
+
+The long-term goal is to evolve the current chatbot into a voice-enabled AI assistant.
+
+---
+
+## Backend
+
+The backend is currently being developed with Node.js.
+
+The backend will be responsible for:
+
+- Handling API requests
+- Communicating with AI services
+- Protecting API credentials
+- Processing chat requests
+- Connecting frontend services to external APIs
+- Database communication
+- Returning AI responses to the frontend
+
+The planned backend architecture uses Node.js as the communication layer between the React frontend and external services.
+
+---
+
+## Supabase
+
+Supabase is already used in the project for authentication and will also be used for additional backend functionality.
+
+Current and planned Supabase usage includes:
+
+- Authentication
+- User management
+- Session handling
+- Protected application areas
+- Database functionality
+- PostgreSQL
+- Persistent application data
+- Future chat history storage
+
+---
+
+## Footer
+
+The footer is currently under active development.
+
+It includes multiple sections and reusable components.
+
+Current and planned footer areas include:
+
+- Navigation sections
+- Company information
+- Product links
+- Solution links
+- Social links
+- GitHub
+- LinkedIn
+- AI assistant access
+
+Additional footer pages, routes, and UI improvements are still being implemented.
+
+---
+
+## Header
+
+The main header is already implemented.
+
+It includes navigation and authentication-related functionality.
+
+Additional styling and responsive improvements may still be added in future updates.
+
+---
+
+## Animations
+
+The application uses GSAP for interactive animations and UI transitions.
+
+Current and planned animation work includes:
+
+- Entrance animations
+- Component transitions
+- Scroll-related effects
+- Interactive UI animations
+- Authentication animations
+- Animated sections
+- UI transitions
+
+---
+
+## Pagination
+
+The project includes custom pagination functionality.
+
+Pagination is used as part of the application's component architecture and is being improved as the project grows.
+
+---
+
+## Stepper
+
+The application includes stepper-based UI components for multi-step interactions.
+
+The stepper functionality is implemented as part of the reusable React component architecture.
+
+---
+
+## Technologies
+
+### Frontend
+
+- React
+- JavaScript
+- React Router
+- Styled Components
+- CSS
+- GSAP
+- React Icons
+
+### Backend
+
+- Node.js
+- REST API
+
+### Authentication
+
+- Supabase Authentication
+
+### Database / Services
+
+- Supabase
+- PostgreSQL
+
+### AI
+
+- OpenAI API
+
+### Development Tools
+
+- Git
+- GitHub
+- npm
+- Vite
+
+---
+
+## Development Roadmap
+
+Current development priorities:
+
+1. Complete the Node.js backend
+2. Connect the React chat interface to the backend
+3. Integrate the OpenAI API
+4. Complete footer components and routes
+5. Improve authentication UI
+6. Add responsive design
+7. Improve mobile layouts
+8. Add persistent chat history
+9. Expand Supabase integration
+10. Add loading and error handling
+11. Add streaming AI responses
+12. Add voice functionality to the AI assistant
+13. Continue adding new pages and features
+
+---
+
+## Responsive Design
+
+Responsive design is currently under development.
+
+The present version is best viewed on:
+
+- Desktop
+- Laptop
+
+Mobile support has not yet been completed.
+
+> **Please note:**  
+> The current version is not yet optimized for smartphones or small screens.
+
+A fully responsive layout will be added in future updates.
+
+---
+
+## Development Philosophy
+
+This repository is intentionally published before completion.
+
+Instead of uploading only the final version, I want the repository to show the real development process of the application.
+
+The project will continue to evolve through:
+
+- Regular commits
+- Refactoring
+- UI improvements
+- Backend development
+- Authentication improvements
+- Responsive design
+- AI integration
+- Database integration
+- New features
+
+---
+
+## Project Goal
+
+The goal of this project is to build a complete modern web application that combines:
+
+- Frontend development
+- Authentication
+- Reusable React architecture
+- Styled Components
+- UI animation
+- Backend development
+- API communication
+- Database integration
+- AI functionality
+- Future voice interaction
+
+The project is also being used as a practical environment for continuously improving my full-stack development skills.
+
+---
+
+## Future Plans
+
+Planned future improvements include:
+
+- Full responsive design
+- Mobile optimization
+- Improved authentication UI
+- Additional pages
+- Completed footer navigation
+- OpenAI API integration
+- AI-generated responses
+- Chat history persistence
+- Voice interaction
+- AI-agent capabilities
+- Improved error handling
+- Improved loading states
+- Additional backend services
+
+---
+
+## Links
+
+- Live Demo: Coming soon
+- GitHub: Available through this repository
+- LinkedIn: Connected through the application
+
+---
+
+## Project Status
+
+> 🚧 **This project is under active development.**
+
+New features, UI improvements, backend functionality, and AI features will continue to be added regularly.
