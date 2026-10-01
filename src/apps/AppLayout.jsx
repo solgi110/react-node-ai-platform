@@ -64,7 +64,7 @@ export const router = createBrowserRouter(
   ],
 
   {
-    base: '/react-node-ai-platform/'
+    basename:  import.meta.env.BASE_URL,
   }
 )
 
