@@ -1,8 +1,9 @@
 # React Node AI Platform
 
 > 🚧 Work in Progress
+# Full-Stack AI Web Application
 
-A full-stack web application built with React and Node.js, featuring Supabase authentication, reusable React components, Styled Components, GSAP animations, pagination, stepper components, and an evolving AI assistant.
+A full-stack web application built with React and Node.js, featuring Supabase authentication, reusable React components, Styled Components, GSAP animations, pagination, stepper components, and a functional AI assistant powered by the OpenAI Responses API.
 
 I decided to publish this project early instead of waiting until it is fully completed, so the development process, improvements, architectural changes, and new features can be followed over time.
 
@@ -42,11 +43,15 @@ Responsive design for mobile devices is not yet completed.
 - Styled Components
 - GSAP animations
 - Interactive AI chat interface
+- OpenAI Responses API integration
+- AI-generated chatbot responses
+- Node.js backend communication
 - Dynamic message rendering
 - Automatic chat scrolling
 - Message timestamps
 - Message deletion
 - Input validation
+- AI response loading state
 - LinkedIn integration
 - GitHub integration
 
@@ -93,76 +98,90 @@ The project includes:
 
 ## AI Assistant
 
-An AI assistant is currently being developed and integrated into the application.
+The AI assistant is now integrated into the application and connected to the backend.
 
-At the moment, the assistant includes a custom text-based chat interface.
+The current assistant includes a custom text-based chat interface connected to a Node.js backend and the OpenAI Responses API.
 
 Current chat functionality includes:
 
 - User message input
 - Dynamic message objects
+- AI-generated responses
 - Message history
 - Automatic scrolling
 - Message timestamps
 - Empty-message validation
 - Message deletion
+- Loading state while waiting for AI responses
 - Custom chat UI
 - User and assistant message structure
+- Backend communication with Node.js
+- OpenAI Responses API integration
 
 The AI assistant can be accessed from the footer area of the application.
 
+The next major development step is adding voice interaction and expanding the assistant into a more advanced AI-powered experience.
+
 ---
 
-## AI Development Roadmap
+## AI Architecture
 
-The next stage is connecting the chat interface to the backend.
-
-Planned architecture:
+Current architecture:
 
 React Frontend  
 ↓  
 Node.js Backend  
 ↓  
-OpenAI API  
+OpenAI Responses API  
 ↓  
 Node.js  
 ↓  
 React Chat Interface
 
-Future improvements include:
+The frontend sends user messages to the Node.js backend.
 
-- OpenAI API integration
-- AI-generated responses
-- Conversation history
+The backend securely communicates with the OpenAI Responses API using environment variables and returns AI-generated responses to the React application.
+
+API credentials are kept on the server side and are not exposed to the client.
+
+---
+
+## AI Development Roadmap
+
+The text-based AI chatbot is now functional and connected to the backend and the OpenAI Responses API.
+
+The next development phase will focus on improving the assistant with:
+
+- Conversation history improvements
 - Persistent chat storage
 - Supabase integration
 - User-specific conversations
-- Loading states
-- Error handling
+- Improved error handling
 - Streaming responses
 - Voice interaction
 - Voice-enabled AI assistant
 - More advanced AI-agent functionality
 
-The long-term goal is to evolve the current chatbot into a voice-enabled AI assistant.
+The long-term goal is to evolve the current text-based chatbot into a voice-enabled AI assistant with more advanced capabilities.
 
 ---
 
 ## Backend
 
-The backend is currently being developed with Node.js.
+The backend is implemented with Node.js and Express.
 
-The backend will be responsible for:
+It currently handles:
 
-- Handling API requests
-- Communicating with AI services
-- Protecting API credentials
-- Processing chat requests
-- Connecting frontend services to external APIs
-- Database communication
-- Returning AI responses to the frontend
+- API requests from the React frontend
+- Communication with the OpenAI Responses API
+- Protection of API credentials through environment variables
+- Chat request processing
+- Returning AI-generated responses to the frontend
+- Communication between the frontend and external services
 
-The planned backend architecture uses Node.js as the communication layer between the React frontend and external services.
+The backend acts as the communication layer between the React frontend and external APIs.
+
+Additional backend functionality will continue to be added as the project grows.
 
 ---
 
@@ -257,10 +276,12 @@ The stepper functionality is implemented as part of the reusable React component
 - CSS
 - GSAP
 - React Icons
+- Vite
 
 ### Backend
 
 - Node.js
+- Express
 - REST API
 
 ### Authentication
@@ -274,12 +295,13 @@ The stepper functionality is implemented as part of the reusable React component
 
 ### AI
 
-- OpenAI API
+- OpenAI Responses API
 
 ### Development Tools
 
 - Git
 - GitHub
+- GitHub Actions
 - npm
 - Vite
 
@@ -289,19 +311,19 @@ The stepper functionality is implemented as part of the reusable React component
 
 Current development priorities:
 
-1. Complete the Node.js backend
-2. Connect the React chat interface to the backend
-3. Integrate the OpenAI API
-4. Complete footer components and routes
-5. Improve authentication UI
-6. Add responsive design
-7. Improve mobile layouts
-8. Add persistent chat history
-9. Expand Supabase integration
-10. Add loading and error handling
-11. Add streaming AI responses
-12. Add voice functionality to the AI assistant
-13. Continue adding new pages and features
+1. Add persistent chat history
+2. Expand Supabase integration
+3. Add streaming AI responses
+4. Add voice functionality to the AI assistant
+5. Improve error handling
+6. Improve authentication UI
+7. Complete footer components and routes
+8. Add responsive design
+9. Improve mobile layouts
+10. Continue adding new pages and features
+11. Improve AI conversation handling
+12. Add user-specific AI conversations
+13. Expand future AI-agent capabilities
 
 ---
 
@@ -337,7 +359,7 @@ The project will continue to evolve through:
 - Backend development
 - Authentication improvements
 - Responsive design
-- AI integration
+- AI improvements
 - Database integration
 - New features
 
@@ -357,6 +379,7 @@ The goal of this project is to build a complete modern web application that comb
 - Database integration
 - AI functionality
 - Future voice interaction
+- Future AI-agent capabilities
 
 The project is also being used as a practical environment for continuously improving my full-stack development skills.
 
@@ -371,14 +394,16 @@ Planned future improvements include:
 - Improved authentication UI
 - Additional pages
 - Completed footer navigation
-- OpenAI API integration
-- AI-generated responses
-- Chat history persistence
+- Persistent chat history
+- Improved AI conversation handling
+- Streaming AI responses
 - Voice interaction
+- Voice-enabled AI assistant
 - AI-agent capabilities
 - Improved error handling
 - Improved loading states
 - Additional backend services
+- Extended Supabase integration
 
 ---
 
@@ -394,4 +419,7 @@ Planned future improvements include:
 
 > 🚧 **This project is under active development.**
 
-New features, UI improvements, backend functionality, and AI features will continue to be added regularly.
+The text-based AI chatbot is now functional and connected to the Node.js backend and OpenAI Responses API.
+
+New features, UI improvements, backend functionality, voice capabilities, database features, and advanced AI functionality will continue to be added regularly.
+
