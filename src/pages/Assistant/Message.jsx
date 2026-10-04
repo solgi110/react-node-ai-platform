@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { IoIosSend } from 'react-icons/io'
 import { IoIosContact } from 'react-icons/io'
 import { RiRobot2Line } from 'react-icons/ri'
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import text from '../../assets/text.jpg'
 import useclientRequest from './openAi'
 
@@ -105,6 +106,7 @@ export default function Message({ message, setMessage, setToMessasge, toMesssage
   const time = new Date().toLocaleDateString()
   const { resclient } = useclientRequest()
   const [answerReq, setAnswer] = useState([])
+  const [loading, setLoading] = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -121,12 +123,16 @@ export default function Message({ message, setMessage, setToMessasge, toMesssage
       return
     }
     //  sending to Node
+
+    setLoading(true)
     const answers = await resclient(message)
-   
+
     setAnswer(prev => [...prev, answers])
 
     setToMessasge(prev => [...prev, resultMessage])
+
     setMessage('')
+    setLoading(false)
   }
 
   const refEl = useRef()
@@ -137,9 +143,6 @@ export default function Message({ message, setMessage, setToMessasge, toMesssage
       behavior: 'smooth'
     })
   }, [toMesssage])
-
-
-
 
   return (
     <Messaging>
@@ -161,6 +164,15 @@ export default function Message({ message, setMessage, setToMessasge, toMesssage
                     <RiRobot2Line color="grey" />
                   </Ic>
                   <Chat> {answerReq[index]} </Chat>
+                </TextParagraf>
+              )}
+
+              {loading && (
+                <TextParagraf>
+                  <Ic>
+                    <AiOutlineLoading3Quarters />
+                  </Ic>
+                  <Chat>Loading ..</Chat>
                 </TextParagraf>
               )}
             </>
