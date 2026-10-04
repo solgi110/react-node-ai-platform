@@ -20,8 +20,8 @@ const close = keyframes`
 `
 const Aicontainer = styled.div`
   position: fixed;
-  top: 45%;
-  width: 65%;
+  top: ${({ $height }) => ($height ? '60%' : '35%')};
+  width: ${({$height})=> $height ? '50%' : '55%'};
   max-width: 630px;
   height: 600px;
   z-index: 100000;
@@ -58,12 +58,15 @@ const SettingContainer = styled.div`
   display: flex;
 `
 
-export default function Aibox({ setChatBox, chatBox }) {
+export default function Aibox({ setChatBox, chatBox, innerHeights }) {
+ 
+
   const [message, setMessage] = useState('')
   const [toMesssage, setToMessasge] = useState([])
 
+
   return (
-    <Aicontainer>
+    <Aicontainer $height={innerHeights.viewPort > 1000}>
       <Head>
         <RiRobot2Line fontSize={24} />
         <Close

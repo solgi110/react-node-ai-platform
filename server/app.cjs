@@ -4,7 +4,12 @@ const server = require('node:http').createServer()
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const { default: openAiRequest } = require('./request')
 
+
+// MeadelWare 
+app.use(express.json())
+app.use(cors())
 
 
 // const OpenAi = require('openai')
@@ -13,17 +18,19 @@ const cors = require('cors')
 //  const dirName = dirname(fileName)
 //  console.log(fileName);
 
-app.use(express.json())
-app.use(cors())
 
-app.post('/openai', (req, res) => {
+app.post('/openai', async (req, res) => {
   console.log(req.body.text);
-  console.log('data is here');
+  // console.log('data is here');
+  const resultation = await openAiRequest(req.body.text)
 
+  res.json({
+    status: 200,
+    data: resultation
+  })
 
 })
 
-// Ai is comming baby !
 
 app.listen(8080, () => {
   console.log('server is runing Now ..');

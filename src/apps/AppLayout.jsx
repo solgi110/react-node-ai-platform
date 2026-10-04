@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createBrowserRouter, Outlet, Navigate, useNavigate } from 'react-router-dom'
 import Headers from '../components/Headers'
 import Home from '../pages/Home'
@@ -69,14 +69,16 @@ export const router = createBrowserRouter(
 )
 
 export default function AppLayout() {
+  const [viewPort, setViewPort] = useState('')
+
   return (
     <>
       <Headers />
       <main>
-        <Outlet />
+        <Outlet context={{ setViewPort, viewPort }} />
       </main>
       {/* we need the secon Layout for its Componnents */}
-      <Footer columns="1fr 1fr 1fr 1fr " />
+      <Footer columns="1fr 1fr 1fr 1fr " viewPort={{ viewPort, setViewPort }} />
     </>
   )
 }

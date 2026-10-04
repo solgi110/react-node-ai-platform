@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "nodemon server/app.cjs"
+    "start": "nodemon --exec \"node --env-file=.env\" server/app.cjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.115.0",

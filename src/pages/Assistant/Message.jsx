@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { IoIosSend } from 'react-icons/io'
 import { IoIosContact } from 'react-icons/io'
+import { RiRobot2Line } from 'react-icons/ri'
 import text from '../../assets/text.jpg'
-import clientRequest from './openAi'
+import useclientRequest from './openAi'
 
 const Messaging = styled.div`
   display: flex;
@@ -53,6 +54,7 @@ const Btn = styled.button`
 
 const TextParagraf = styled.div`
   display: flex;
+  /* font-size: 14px; */
   align-items: center;
   flex-shrink: 0;
   width: 90%;
@@ -62,15 +64,30 @@ const TextParagraf = styled.div`
   text-align: start;
   box-sizing: border-box;
 `
-const Text = styled.p`
+const User = styled.p`
   background-color: #4687ff;
-  padding: 5px;
+  padding: 10px;
+  padding-left: 0.7rem;
   text-align: left;
   border-radius: 6px;
   max-width: 100%;
   overflow-wrap: break-word;
   word-break: break-word;
+  font-size: 12px;
+  /* color: black; */
 `
+const Chat = styled.p`
+  background-color: #5e6063;
+  padding: 10px;
+  text-align: left;
+  border-radius: 6px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-size: 12px;
+  padding-left: 0.7rem;
+`
+
 const Ic = styled.div`
   font-size: 30px;
   flex-shrink: 0;
@@ -85,11 +102,11 @@ const TextWrapper = styled.div`
 `
 
 export default function Message({ message, setMessage, setToMessasge, toMesssage }) {
-  const { useClient } = clientRequest()
- 
   const time = new Date().toLocaleDateString()
+  const { resclient } = useclientRequest()
+  const [answerReq, setAnswer] = useState([])
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
 
     const resultMessage = {
@@ -103,33 +120,50 @@ export default function Message({ message, setMessage, setToMessasge, toMesssage
       setMessage('')
       return
     }
+    //  sending to Node
+    const answers = await resclient(message)
    
-     useClient(message)
-     
+    setAnswer(prev => [...prev, answers])
+
     setToMessasge(prev => [...prev, resultMessage])
     setMessage('')
   }
 
   const refEl = useRef()
 
+  // auto scrolling
   useEffect(() => {
     refEl?.current.scrollIntoView({
       behavior: 'smooth'
     })
   }, [toMesssage])
 
+
+
+
   return (
     <Messaging>
       <TextWrapper>
-        {toMesssage?.map(msg => {
+        {toMesssage?.map((msg, index) => {
           const Icon = msg.icon
           return (
-            <TextParagraf key={msg.id}>
-              <Ic>
-                <Icon color="grey" />
-              </Ic>
-              <Text> {msg && msg.content} </Text>
-            </TextParagraf>
+            <>
+              <TextParagraf key={msg.id}>
+                <Ic>
+                  <Icon color="grey" />
+                </Ic>
+                <User> {msg && msg.content} </User>
+              </TextParagraf>
+
+              {answerReq[index] && (
+                <TextParagraf key={index}>
+                  <Ic>
+                    <RiRobot2Line color="grey" />
+                  </Ic>
+                  <Chat> {answerReq[index]} </Chat>
+                </TextParagraf>
+              )}
+            </>
           )
         })}
         <div ref={refEl}></div>

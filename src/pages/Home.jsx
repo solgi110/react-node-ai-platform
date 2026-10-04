@@ -11,6 +11,7 @@ import TeamInfo from './TeamInfo'
 import Gsap from './Gsap'
 import Footer from '../components/Footer'
 import { FooterLayout } from '../apps/AppLayout'
+import { useOutletContext } from 'react-router-dom'
 
 export const HomeContainer = styled.section`
   display: flex;
@@ -202,8 +203,10 @@ export default function Home() {
   const [paginat, setPaginate] = useState(0)
   const [animation, setAnimation] = useState(0)
 
+  const { viewPort, setViewPort } = useOutletContext()
+
   return (
-    <HomeContainer>
+    <HomeContainer $view={viewPort > 1000}>
       <TextWrapper className="Wrapper">
         <BigTag className="texts">
           <div className="One">

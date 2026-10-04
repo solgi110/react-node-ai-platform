@@ -91,7 +91,8 @@ const Span = styled.span`
   }
 `
 
-export default function Footer({ columns }) {
+export default function Footer({ columns, viewPort }) {
+
   // const time = new Date().toISOString().split('T')[0]
   const date = '2026'
   const [chatBox, setChatBox] = useState(false)
@@ -130,7 +131,7 @@ export default function Footer({ columns }) {
           </Span>
         </SocialMedia>
       </Infolink>
-      {chatBox && <Aibox setChatBox={setChatBox} chatBox={chatBox}/>  }
+      {chatBox && <Aibox setChatBox={setChatBox} chatBox={chatBox} innerHeights={viewPort} />}
     </FooterContainer>
   )
 }

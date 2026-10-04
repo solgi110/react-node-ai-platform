@@ -18,7 +18,7 @@ const Settings = styled.div`
 const Span = styled.span`
   height: 70%;
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
   display: flex;
   justify-content: center;

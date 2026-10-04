@@ -1,10 +1,9 @@
 
-export default function clientRequest() {
+export default function useclientRequest() {
 
 
-  async function useClient(message) {
-  
-    
+  async function resclient(message) {
+
     const data = {
       text: message,
 
@@ -18,10 +17,15 @@ export default function clientRequest() {
 
     })
 
-    return request
+    const result = await request.json()
+
+    const pureResult = result?.data?.output?.[1]?.content?.[0]?.text
+
+    return pureResult
+
 
   }
 
-  return { useClient }
+  return { resclient }
 
 }
