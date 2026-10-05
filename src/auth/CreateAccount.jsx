@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { IoClose } from 'react-icons/io5'
+import flower from '../assets/flowers.jpg'
 
 const Container = styled.div`
   position: relative;
@@ -47,7 +48,7 @@ export default function CreateAccount() {
         <IoClose />
       </Span>
       <ImageContainer>
-        <Img src="./src/assets/flowers.jpg" />
+        <Img src={flower} alt='Image'/>
       </ImageContainer>
 
       <CreateBox>

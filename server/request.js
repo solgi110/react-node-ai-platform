@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 const ApiKey = process.env.OPENAI_API_KEY
 async function openAiRequest(req) {
 

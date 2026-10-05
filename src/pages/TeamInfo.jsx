@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 // import teamImage from '../assets/teamImage.jpg '
 import styled, { keyframes } from 'styled-components'
+import team from '../assets/teamimage.jpg'
+
 const Container = styled.div`
   width: 90%;
   height: 500px;
@@ -128,7 +130,7 @@ export default function TeamInfo({ teamInfo, animation, setAnimation }) {
       </TeamContainer>
 
       <Imagge>
-        <Img src="src/assets/teamImage.jpg " alt="Team Foto" />
+        <Img src={team} alt="TeamFoto" />
       </Imagge>
     </Container>
   )
