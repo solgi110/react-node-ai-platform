@@ -32,6 +32,7 @@ app.post('/openai', async (req, res) => {
 })
 
 
+console.log('hello ');
 
 const port = process.env.PORT || 8080
 

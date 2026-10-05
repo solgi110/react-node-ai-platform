@@ -130,9 +130,8 @@ export default function Message({ message, setMessage, setToMessasge, toMesssage
     setAnswer(prev => [...prev, answers])
 
     setToMessasge(prev => [...prev, resultMessage])
-
-    setMessage('')
     setLoading(false)
+    setMessage('')
   }
 
   const refEl = useRef()
