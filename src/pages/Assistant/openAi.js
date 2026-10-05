@@ -19,7 +19,8 @@ export default function useclientRequest() {
     })
 
     const result = await request.json()
-    const pureResult = result?.data?.output?.[1]?.content?.[0]?.text
+    const pureResult = result?.data?.output?.find(item => item.role === 'assistant')?.content?.[0]?.text
+
     return pureResult
   }
 

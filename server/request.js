@@ -40,6 +40,7 @@ async function openAiRequest(req) {
   })
 
   const data = await requesting.json()
+
   return data
 }
 
