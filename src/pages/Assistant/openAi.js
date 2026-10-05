@@ -18,9 +18,6 @@ export default function useclientRequest() {
 
     })
 
-
-    console.log(request);
-    
     const result = await request.json()
     const pureResult = result?.data?.output?.[1]?.content?.[0]?.text
     return pureResult
@@ -29,4 +26,3 @@ export default function useclientRequest() {
   return { resclient }
 
 }
-// ==>  https://react-node-ai-platform-api.onrender.com

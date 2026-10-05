@@ -1,4 +1,13 @@
 
+
+
+
+
+
+
+
+
+
 const ApiKey = process.env.OPENAI_API_KEY
 async function openAiRequest(req) {
 
@@ -10,8 +19,11 @@ async function openAiRequest(req) {
     }
     , body: JSON.stringify({
       model: 'gpt-6-luna',
-      input: [
+      tools: [
 
+        { type: "web_search" }
+      ],
+      input: [
         {
           role: 'user',
 

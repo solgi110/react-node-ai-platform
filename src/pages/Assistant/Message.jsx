@@ -110,6 +110,11 @@ export default function Message({ message, setMessage, setToMessasge, toMesssage
 
   async function handleSubmit(e) {
     e.preventDefault()
+    setLoading(true)
+    if (!message.trim()) {
+      setMessage('')
+      return
+    }
 
     const resultMessage = {
       id: Date.now(),
@@ -118,24 +123,21 @@ export default function Message({ message, setMessage, setToMessasge, toMesssage
       icon: IoIosContact
     }
 
-    if (!message.trim()) {
-      setMessage('')
-      return
-    }
-    //  sending to Node
-
-    setLoading(true)
+    setToMessasge(prev => [...prev, resultMessage])
     const answers = await resclient(message)
 
-    setAnswer(prev => [...prev, answers])
-
-    setToMessasge(prev => [...prev, resultMessage])
+    const assistMessage = {
+      id: Date.now(),
+      role: 'assistant',
+      content: answers,
+      icon: AiOutlineLoading3Quarters
+    }
+    setToMessasge(prev => [...prev, assistMessage])
     setLoading(false)
     setMessage('')
   }
 
   const refEl = useRef()
-
   // auto scrolling
   useEffect(() => {
     refEl?.current.scrollIntoView({
@@ -151,32 +153,34 @@ export default function Message({ message, setMessage, setToMessasge, toMesssage
           return (
             <>
               <TextParagraf key={msg.id}>
-                <Ic>
-                  <Icon color="grey" />
-                </Ic>
-                <User> {msg && msg.content} </User>
+                {msg.role === 'user' ? (
+                  <Ic>
+                    <Icon color="grey" />
+                  </Ic>
+                ) : (
+                  <Ic>
+                    <RiRobot2Line />
+                  </Ic>
+                )}
+
+                {msg.role === 'user' ? (
+                  <User> {msg && msg.content} </User>
+                ) : (
+                  <Chat>{msg && msg.content}</Chat>
+                )}
               </TextParagraf>
-
-              {answerReq[index] && (
-                <TextParagraf key={index}>
-                  <Ic>
-                    <RiRobot2Line color="grey" />
-                  </Ic>
-                  <Chat> {answerReq[index]} </Chat>
-                </TextParagraf>
-              )}
-
-              {loading && (
-                <TextParagraf>
-                  <Ic>
-                    <AiOutlineLoading3Quarters />
-                  </Ic>
-                  <Chat>Loading ..</Chat>
-                </TextParagraf>
-              )}
             </>
           )
         })}
+
+        {loading && (
+          <TextParagraf>
+            <Ic>
+              <AiOutlineLoading3Quarters />
+            </Ic>
+            <Chat>Loading ..</Chat>
+          </TextParagraf>
+        )}
         <div ref={refEl}></div>
       </TextWrapper>
 
