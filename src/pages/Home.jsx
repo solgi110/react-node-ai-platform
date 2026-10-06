@@ -34,6 +34,10 @@ const TextWrapper = styled.div`
   text-align: center;
 `
 const BigTag = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
   font-family: monospace;
   font-size: 36px;
   font-style: normal;
@@ -41,15 +45,15 @@ const BigTag = styled.div`
     Poppins Medium,
     sans-serif;
   font-weight: 600;
-
-  overflow: hidden;
+  overflow-y: hidden;
+  /* overflow: hidden; */
   height: 3.1rem;
-  padding-bottom: 2.25rem;
+  padding-bottom: 2rem;
 `
 const Centrel = styled.div`
   z-index: 1000;
   width: 80%;
-  height: 100px;
+  height: auto;
   text-align: center;
   font-weight: 400;
   font-size: larger;
@@ -67,6 +71,7 @@ const Centrel = styled.div`
   }
 `
 const BTN = styled.button`
+  margin-top: 2rem;
   border: none;
   position: relative;
   background-color: yellow;
@@ -198,29 +203,51 @@ const FooterContainer = styled.div`
   background-color: #ffff0036;
 `
 
+const P = styled.p`
+  /* height: 100%; */
+  height: 5rem;
+  margin: 0;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: none;
+  padding: 0;
+  overflow-y: hidden;
+  scale: 0.9;
+
+  @media (max-width: 715px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 605px) {
+    font-size: 25px;
+  }
+`
+
 export default function Home() {
   const [activeIndex, setIndex] = useState(0)
   const [paginat, setPaginate] = useState(0)
   const [animation, setAnimation] = useState(0)
-
   const { viewPort, setViewPort } = useOutletContext()
 
   return (
     <HomeContainer $view={viewPort > 1000}>
       <TextWrapper className="Wrapper">
-        <BigTag className="texts">
+        <BigTag>
           <div className="One">
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing </p>
-            <p> No one get a professional Developer in a year </p>
-            <p> this is Mostafa Solgi what you see in here </p>
-            <p> pation is the most important thing to become a developer </p>
+            <P> We build modern, scalable digital experiences. </P>
+            <P> Turning ideas into powerful digital products. </P>
+            <P> We develop solutions built for the future. </P>
+            <P> From idea to scalable digital solution. </P>
           </div>
         </BigTag>
       </TextWrapper>
       <Centrel>
         <span>
-          Web develping is the one of the most favorite thing in the world and who love it :
-          couldn't stop Coding , I loved and keep loving
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla quisquam explicabo optio
+          assumenda ipsam nemo sit incidunt .
         </span>
       </Centrel>
 
